@@ -1,0 +1,12 @@
+{{ config(
+  materialized = 'table'
+)}}
+
+select province, sum(new_cases) as total_cases, 
+sum(new_deaths) as total_deaths, 
+sum(new_recovered) as total_recovered 
+from "FIVETRAN_INTERVIEW_DB"."GOOGLE_SHEETS"."COVID_19_INDONESIA_VENKATA_KARTHIK_DINTAKURTHI"
+where province is not null
+group by province
+order by total_cases desc
+limit 10

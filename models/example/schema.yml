@@ -1,0 +1,18 @@
+
+version: 2
+
+models:
+    - name: province_cases_deaths_recoveries
+      description: "Create a view of New cases, deaths & recoveries"
+      columns:
+          - name: province
+            description: "Name of the province"
+            tests:
+                - unique
+                - not_null
+          - name: total_cases
+            description: "Total cases in that province so far"
+          - name: total_deaths
+            description: "Total deaths in that province so far"
+          - name: total_recoveries
+            description: "Total recoveries so far in that province"
